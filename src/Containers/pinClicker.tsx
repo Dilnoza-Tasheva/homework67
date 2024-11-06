@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addNumber, confirmPin } from './pinClickerSlice.ts';
+import { addNumber, confirmPin, deleteNumber } from './pinClickerSlice.ts';
 import { RootState } from '../app/store.ts';
 
 const PinClicker = () => {
@@ -12,6 +12,10 @@ const PinClicker = () => {
 
   const checkPin = () => {
     dispatch(confirmPin());
+  };
+
+  const removeNumber = () => {
+    dispatch(deleteNumber());
   };
 
   return (
@@ -33,7 +37,7 @@ const PinClicker = () => {
             </button>
           ))}
 
-          <button className="btn btn-danger m-1"> &lt; </button>
+          <button className="btn btn-danger m-1" onClick={removeNumber}> X </button>
           <button className="btn btn-success m-1" onClick={checkPin}> E </button>
         </div>
       </div>

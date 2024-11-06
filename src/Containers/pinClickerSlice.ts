@@ -31,10 +31,12 @@ export const pinClickerSlice = createSlice({
         state.userMessage = 'Access denied';
         state.access = false;
       }
+    },
+    deleteNumber: (state) => {
+      state.input = state.input.slice(0);
     }
-
   },
 });
 
 export const pinClickerReducer = pinClickerSlice.reducer;
-export const {addNumber, confirmPin} = pinClickerSlice.actions;
+export const {addNumber, confirmPin, deleteNumber} = pinClickerSlice.actions;
