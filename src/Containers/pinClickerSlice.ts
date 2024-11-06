@@ -33,7 +33,7 @@ export const pinClickerSlice = createSlice({
       }
     },
     deleteNumber: (state) => {
-      state.input = state.input.slice(0);
+      state.input = state.input.slice(0, -1);
     }
   },
 });
