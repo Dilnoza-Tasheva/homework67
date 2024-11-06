@@ -3,7 +3,7 @@ import { addNumber, confirmPin } from './pinClickerSlice.ts';
 import { RootState } from '../app/store.ts';
 
 const PinClicker = () => {
-  const {userMessage} = useSelector((state: RootState) => state.pinClicker);
+  const {userMessage, input} = useSelector((state: RootState) => state.pinClicker);
   const dispatch = useDispatch();
 
   const clickNumber = (number: string) => {
@@ -18,7 +18,10 @@ const PinClicker = () => {
     <>
       <div className="d-flex flex-column align align-items-center mt-5">
         <h3>Enter PIN</h3>
-        <div>{userMessage}</div>
+        <div className="border rounded text-center mb-3">
+          <div>{input.length}</div>
+        </div>
+        <div className="mb-2 text-center">{userMessage}</div>
 
         <div className="d-flex flex-wrap justify-content-center" style={{ width: '220px' }}>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((number) => (
