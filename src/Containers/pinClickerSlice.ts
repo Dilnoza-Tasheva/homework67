@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface pinClickerState {
   input: string;
@@ -14,10 +14,14 @@ export const pinClickerSlice = createSlice({
   name: 'pinClicker',
   initialState,
   reducers: {
+    addNumber: (state, action: PayloadAction<string>) => {
+      if (state.input.length < 4) {
+        state.input += action.payload;
+      }
+    },
 
   },
 });
 
 export const pinClickerReducer = pinClickerSlice.reducer;
-
-export const {} = pinClickerSlice.actions;
+export const {addNumber} = pinClickerSlice.actions;
