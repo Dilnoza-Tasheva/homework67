@@ -25,9 +25,10 @@ const PinClicker = () => {
         <div
           className={`border rounded text-center mb-3 p-4 
           ${access === true ? 'bg-success' : access === false ? 'bg-danger' : 'bg-body'}`}
+          style={{ width: '160px', color: 'white', fontSize: '1.5 rem' }}
         >
           <div className="mb-2 text-center">{userMessage}</div>
-          <div>{input.length}</div>
+          <div>{'*'.repeat(input.length)}</div>
         </div>
 
         <div className="d-flex flex-wrap justify-content-center" style={{ width: '200px' }}>
