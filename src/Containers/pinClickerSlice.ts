@@ -2,10 +2,14 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface pinClickerState {
   input: string;
+  userMessage: string;
+  access: boolean;
 }
 
 const initialState: pinClickerState = {
   input: '',
+  userMessage: '',
+  access: false,
 };
 
 const correctPin = '2005';
@@ -19,9 +23,18 @@ export const pinClickerSlice = createSlice({
         state.input += action.payload;
       }
     },
+    confirmPin: (state) => {
+      if (state.input === correctPin) {
+        state.userMessage = 'Access granted';
+        state.access = true;
+      } else {
+        state.userMessage = 'Access denied';
+        state.access = false;
+      }
+    }
 
   },
 });
 
 export const pinClickerReducer = pinClickerSlice.reducer;
-export const {addNumber} = pinClickerSlice.actions;
+export const {addNumber, confirmPin} = pinClickerSlice.actions;
