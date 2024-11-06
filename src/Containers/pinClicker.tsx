@@ -18,7 +18,7 @@ const PinClicker = () => {
     <>
       <div className="d-flex flex-column align align-items-center mt-5">
         <h3>Enter PIN</h3>
-        <div>message</div>
+        <div>{userMessage}</div>
 
         <div className="d-flex flex-wrap justify-content-center" style={{ width: '220px' }}>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((number) => (
